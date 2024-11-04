@@ -1,4 +1,18 @@
+const audioFiles = {
+    c1: new Audio("sounds/c1.mp3"),
+    csharp: new Audio("sounds/csharp.mp3"),
+    d1: new Audio("sounds/d1.mp3"),
+    // Continue for all notes
+};
 
+function playNote() {
+    const note = this.getAttribute("data-note");
+    const audio = audioFiles[note];
+    if (audio) {
+        audio.currentTime = 0; // Reset to start of sound
+        audio.play();
+    }
+}
 let naturalButtons  = document.querySelectorAll(".bu1");
 let sharpButtons = document.querySelectorAll(".bu2");
 
